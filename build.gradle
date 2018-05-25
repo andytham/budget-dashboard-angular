@@ -29,8 +29,7 @@ dependencies {
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	runtime 'org.springframework.boot:spring-boot-devtools'
 	compile 'org.flywaydb:flyway-core'
-//	compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+	compile 'org.springframework.boot:spring-boot-starter-data-jpa' //crashes unless you have seed data
 	compileOnly 'org.projectlombok:lombok'
-	runtime 'org.springframework.boot:spring-boot-devtools'
 	runtime 'org.postgresql:postgresql'
 }
