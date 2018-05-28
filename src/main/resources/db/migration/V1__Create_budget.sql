@@ -1,4 +1,6 @@
-CREATE TABLE events (
+CREATE TABLE budgets (
 id SERIAL,
-item varchar(100)
+event VARCHAR(100),
+funds INT,
+date DATE
 );
