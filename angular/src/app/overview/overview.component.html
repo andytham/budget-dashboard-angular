@@ -1,5 +1,25 @@
 <div> this is the overview component</div>
 
 <li *ngFor="let event of events">
-  <div>name {{event.event}} net cost {{event.funds}}</div>
+  <div>name {{event.name}} net cost {{event.funds}}</div>
 </li>
+
+<div>
+  <label>Event Name:
+    <input #eventName />
+  </label>
+
+  <label> Funds:
+    <input #eventFunds />
+  </label>
+
+  <label> Date:
+    <input #eventDate />
+  </label>
+
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(eventName.value,eventFunds.value,eventDate.value);eventName.value='';eventFunds.value='';eventDate.value=''">
+    add
+  </button>
+</div>

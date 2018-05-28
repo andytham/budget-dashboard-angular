@@ -1,6 +1,6 @@
 export class Event {
 	id: number;
-	event: string;
-	funds: string;
+	name: string;
+	funds: number;
 	date: string;
 }

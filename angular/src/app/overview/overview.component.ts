@@ -24,4 +24,16 @@ export class OverviewComponent implements OnInit {
   //
   // ngOnInit() {
   // }
+  refresh(): void {
+    window.location.reload();
+  }
+  add(name: string,funds: number,date: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.eventService.addEvent({  name: name , funds: funds, date: date } as Event)
+      .subscribe(event => {
+        this.events.push(event);
+    })
+    // .subscribe(() => this.refresh());
+  }
 }
