@@ -36,4 +36,13 @@ export class OverviewComponent implements OnInit {
     })
     // .subscribe(() => this.refresh());
   }
+  save(event): void {
+    this.eventService.updateEvent(event)
+    .subscribe(() => this.goBack());
+  }
+  selectedEvent: Event;
+  onSelect(event: Event){
+    this.selectedEvent = event;
+  }
+
 }

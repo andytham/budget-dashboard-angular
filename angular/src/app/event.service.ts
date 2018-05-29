@@ -48,7 +48,10 @@ export class EventService {
 
   /** PUT: update the event on the server */
   updateEvent (event: Event): Observable<any> {
-    return this.http.put(this.eventsUrl, event, httpOptions).pipe(
+
+    const id = typeof event === 'number' ? event : event.id;
+    const url = `${this.eventsUrl}/${id}`;
+    return this.http.put(url, event).pipe(
       tap(_ => this.log(`updated event id=${event.id}`)),
       catchError(this.handleError<any>('updateEvent'))
     );
@@ -83,4 +86,12 @@ export class EventService {
       catchError(this.handleError<Event[]>('searchEvents', []))
     );
   }
+
+  // selectedEventId: number;
+  // selectEventId(id: number) {
+  //   this.selectedEvent = id;
+  // }
+  // getSelectedEvent(id: number) {
+  //   return this.selectedEventId;
+  // }
 }

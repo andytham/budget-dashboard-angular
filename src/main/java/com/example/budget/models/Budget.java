@@ -2,6 +2,7 @@ package com.example.budget.models;
 
 import lombok.*;
 import javax.persistence.*;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor @NoArgsConstructor @Getter @Setter
@@ -12,13 +13,13 @@ public class Budget {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "event")
-    private String event;
+    @Column(name = "name")
+    private String name;
 
     @Column(name = "funds")
-    private String funds;
+    private Integer funds;
 
     @Column(name = "date")
-    private String date;
+    private Date date;
 
 }

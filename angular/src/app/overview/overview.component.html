@@ -1,8 +1,11 @@
 <div> this is the overview component</div>
 
-<li *ngFor="let event of events">
-  <div>name {{event.name}} net cost {{event.funds}}</div>
-</li>
+<ul class="events">
+  <div>name</div> <div>funds</div> <div>date</div>
+  <li *ngFor="let event of events" (click)="onSelect(event)">
+    <div >name {{event.name}} net cost {{event.funds}}</div>
+  </li>
+</ul>
 
 <div>
   <label>Event Name:
@@ -14,7 +17,7 @@
   </label>
 
   <label> Date:
-    <input #eventDate />
+    <input #eventDate placeholder="must be YYYY-MM-DD"/>
   </label>
 
 
@@ -22,4 +25,20 @@
   <button (click)="add(eventName.value,eventFunds.value,eventDate.value);eventName.value='';eventFunds.value='';eventDate.value=''">
     add
   </button>
+</div>
+
+<div *ngIf="selectedEvent">
+
+  <h2>{{ selectedEvent.name | uppercase }} Details</h2>
+  <div><span>id: </span>{{selectedEvent.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedEvent.name" placeholder="name">
+    </label>
+  </div>
+  <button (click)="save(selectedEvent)">save</button>
+  <a routerLink="/detail/{{selectedEvent.id}}">
+    Edit
+  </a>
+
 </div>
