@@ -1,5 +1,7 @@
 api:
+
 http://localhost:8080/budget
+
 http://localhost:8080/quick
 
 how to run:
@@ -13,9 +15,15 @@ how to run:
 
 TODO:
 CSS
+
 implement quick add of budget items
+
 CSS
+
 gains/loss
+
 graph
+
 total balance
+
 CSS
