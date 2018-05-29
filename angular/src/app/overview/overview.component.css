@@ -1,0 +1,48 @@
+.post{
+
+  display:flex;
+  flex-direction: column;
+  width: 800px;
+}
+
+li{
+  list-style: none;
+  line-height: 30px;
+}
+
+.budget-item{
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+  flex-direction: row;
+}
+
+.budget-item-single{
+  width: 200px;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.budget-header{
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.overview{
+  display:flex;
+  flex-direction: row;
+}
+
+.add-button{
+  width: 100px;
+}
+button {
+  margin-top: 20px;
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer; cursor: hand;
+}

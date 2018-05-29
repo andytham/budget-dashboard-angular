@@ -1,43 +1,51 @@
-<div> this is the overview component</div>
+<div class="overview">
+  <ul class="events">
+    <div class="budget-item budget-header">
+      <div class="budget-item-single">name</div>
+      <div class="budget-item-single">funds</div>
+      <div class="budget-item-single">date</div>
+    </div>
+    <li class="budget-item" *ngFor="let event of events" (click)="onSelect(event)">
+      <div class="budget-item-single">{{event.name}}</div>
+      <div class="budget-item-single">{{event.funds}}</div>
+      <div class="budget-item-single">{{event.date.split('T')[0]}}</div>
+    </li>
 
-<ul class="events">
-  <div>name</div> <div>funds</div> <div>date</div>
-  <li *ngFor="let event of events" (click)="onSelect(event)">
-    <div >name {{event.name}} net cost {{event.funds}}</div>
-  </li>
-</ul>
+    <div class="post">
 
-<div>
-  <label>Event Name:
-    <input #eventName />
-  </label>
+      <div><br>Add an event: </div>
+      <label>Event:
+        <input #eventName />
+      </label>
 
-  <label> Funds:
-    <input #eventFunds />
-  </label>
+      <label> Funds:
+        <input #eventFunds />
+      </label>
 
-  <label> Date:
-    <input #eventDate placeholder="must be YYYY-MM-DD"/>
-  </label>
+      <label> Date:
+        <input #eventDate placeholder="must be YYYY-MM-DD"/>
+      </label>
+      <!-- (click) passes input value to add() and then clears the input -->
+      <button class="add-button" (click)="add(eventName.value,eventFunds.value,eventDate.value);eventName.value='';eventFunds.value='';eventDate.value=''">
+      add
+    </button>
+    </div>
+  </ul>
 
+  <div *ngIf="selectedEvent">
 
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="add(eventName.value,eventFunds.value,eventDate.value);eventName.value='';eventFunds.value='';eventDate.value=''">
-    add
-  </button>
-</div>
+    <h2>{{ selectedEvent.name }} Details</h2>
+    <!-- <div><span>id: </span>{{selectedEvent.id}}</div> -->
+    <div>
 
-<div *ngIf="selectedEvent">
+      <div>{{selectedEvent.name}}</div>
+      <div>{{selectedEvent.funds}}</div>
+      <div>{{selectedEvent.date}}</div>
 
-  <h2>{{ selectedEvent.name | uppercase }} Details</h2>
-  <div><span>id: </span>{{selectedEvent.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="selectedEvent.name" placeholder="name">
-    </label>
-  </div>
-  <a routerLink="/detail/{{selectedEvent.id}}">
+    </div>
+    <a routerLink="/detail/{{selectedEvent.id}}">
     Edit
   </a>
 
+  </div>
 </div>

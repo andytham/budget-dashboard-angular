@@ -1,20 +1,23 @@
-<div *ngIf="event">
+<div class="event-detail">
+  <div *ngIf="event">
 
-  <h2>{{ event.name | uppercase }} Details</h2>
-  <div><span>id: </span>{{event.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="event.name" placeholder="name"/>
-    </label>
-    <label>funds:
-      <input [(ngModel)]="event.funds" placeholder="name"/>
-    </label>
-    <label>date:
-      <input [(ngModel)]="event.date" placeholder="name"/>
-    </label>
+    <h2>{{ event.name | uppercase }} Details</h2>
+    <div><span>id: </span>{{event.id}}</div>
+    <div class="form-box">
+      <label>name:
+        <input [(ngModel)]="event.name" placeholder="name"/>
+      </label>
+      <label>funds:
+        <input [(ngModel)]="event.funds" placeholder="name"/>
+      </label>
+      <label>date:
+        <input [(ngModel)]="event.date" placeholder="name"/>
+      </label>
+    </div>
+
   </div>
+  <button (click)="save()">save</button>
+  <button (click)="goBack()">go back</button>
 
+  <button (click)="delete()">delete</button>
 </div>
-<button (click)="goBack()">go back</button>
-<button (click)="save()">save</button>
-<button (click)="delete()">delete</button>
