@@ -15,10 +15,12 @@ export class EventService {
   constructor(private http: HttpClient,
               private messageService: MessageService) { }
 
+  //implement messaging if you want
   private log(message: string) {
     this.messageService.add('HeroService: ' + message);
   }
 
+  // for messaging really
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error); // log to console instead
@@ -76,16 +78,16 @@ export class EventService {
   }
 
   /* GET event whose name contains search term */
-  searchEvents(term: string): Observable<Event[]> {
-    if (!term.trim()) {
-      // if not search term, return empty event array.
-      return of([]);
-    }
-    return this.http.get<Event[]>(`${this.eventsUrl}/?name=${term}`).pipe(
-      tap(_ => this.log(`found events matching "${term}"`)),
-      catchError(this.handleError<Event[]>('searchEvents', []))
-    );
-  }
+  // searchEvents(term: string): Observable<Event[]> {
+  //   if (!term.trim()) {
+  //     // if not search term, return empty event array.
+  //     return of([]);
+  //   }
+  //   return this.http.get<Event[]>(`${this.eventsUrl}/?name=${term}`).pipe(
+  //     tap(_ => this.log(`found events matching "${term}"`)),
+  //     catchError(this.handleError<Event[]>('searchEvents', []))
+  //   );
+  // }
 
   // selectedEventId: number;
   // selectEventId(id: number) {
